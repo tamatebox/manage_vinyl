@@ -1,3 +1,17 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :artist, "Search Artist" %>
+  <%= f.search_field :artist_cont %>
+
+  <%= f.label :album, "Search Album" %>
+  <%= f.search_field :album_cont %>
+
+  <%= f.label :year, "Serch Year" %>
+  <%= f.number_field :year_gteq %>~
+  <%= f.number_field :year_lt %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Vinyls</h1>
@@ -5,9 +19,9 @@
 <table>
   <thead>
     <tr>
-      <th class="fixed01">Artist</th>
-      <th class="fixed01">Album</th>
-      <th class="fixed01">Year</th>
+      <th class="fixed01"><%= sort_link(@q, :artist, "Artist") %></th>
+      <th class="fixed01"><%= sort_link(@q, :album, "Album") %></th>
+      <th class="fixed01"><%= sort_link(@q, :year, "Year") %></th>
       <th class="fixed01">Label</th>
       <th class="fixed01">Genre</th>
       <th class="fixed01">Japanese</th>

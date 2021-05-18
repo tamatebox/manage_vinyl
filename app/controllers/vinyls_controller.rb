@@ -3,7 +3,8 @@ class VinylsController < ApplicationController
 
   # GET /vinyls or /vinyls.json
   def index
-    @vinyls = Vinyl.all
+    @q = Vinyl.ransack(params[:q])
+    @vinyls = @q.result(distinct: true)
   end
 
   # GET /vinyls/1 or /vinyls/1.json
