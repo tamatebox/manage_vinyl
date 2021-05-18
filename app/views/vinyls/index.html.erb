@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vinyls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class="fixed01">Artist</th>
+      <th class="fixed01">Album</th>
+      <th class="fixed01">Year</th>
+      <th class="fixed01">Label</th>
+      <th class="fixed01">Genre</th>
+      <th class="fixed01">Japanese</th>
+      <th class="fixed01">Size</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vinyls.each do |vinyl| %>
+      <tr>
+        <td><%= vinyl.artist %></td>
+        <td><%= vinyl.album %></td>
+        <td><%= vinyl.year %></td>
+        <td><%= vinyl.label %></td>
+        <td><%= vinyl.genre %></td>
+        <td><%= vinyl.japanese %></td>
+        <td><%= vinyl.size %></td>
+        <td><%= link_to 'Show', vinyl %></td>
+        <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
+        <td><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vinyl', new_vinyl_path %>

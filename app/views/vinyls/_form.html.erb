@@ -1,0 +1,52 @@
+<%= form_with(model: vinyl) do |form| %>
+  <% if vinyl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vinyl.errors.count, "error") %> prohibited this vinyl from being saved:</h2>
+
+      <ul>
+        <% vinyl.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, size:40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album %>
+    <%= form.text_field :album, size:60 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_field :label %>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.select :genre, {'Rock': 'Rock', 'Pop': 'Pop', 'Electronic': 'Electronic', 'Rap': 'Rap', 'Funk': 'Funk', 'Jazz': 'Jazz', 'Classic': 'Classic', 'Other': 'Other'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :japanese %>
+    <%= form.select :japanese, {'No': 0, 'Yes': 1} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.select :size, {'7inch': '7inch', '12inch': '12inch'}, selected: '12inch' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
