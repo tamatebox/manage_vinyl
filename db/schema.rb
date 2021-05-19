@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_155151) do
+ActiveRecord::Schema.define(version: 2021_05_19_035258) do
 
   create_table "vinyls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "artist"
     t.string "album"
     t.integer "year"
     t.string "genre"
-    t.binary "japanese"
-    t.binary "size"
+    t.boolean "japanese"
+    t.integer "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "label"

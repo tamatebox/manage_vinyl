@@ -5,11 +5,35 @@
   <%= f.label :album, "Search Album" %>
   <%= f.search_field :album_cont %>
 
+  <%= f.label :label, "Serch Label" %>
+  <%= f.search_field :label_cont %>
+
   <%= f.label :year, "Serch Year" %>
   <%= f.number_field :year_gteq %>~
   <%= f.number_field :year_lt %>
 
-  <%= f.submit "検索" %>
+  <%= f.label :genre, 'Genre' %>
+  <%= f.radio_button :genre_eq, '' %>any
+  <%= f.radio_button :genre_eq, 'Rock' %>Rock
+  <%= f.radio_button :genre_eq, 'Pop' %>Pop
+  <%= f.radio_button :genre_eq, 'Electronic' %>Electronic
+  <%= f.radio_button :genre_eq, 'Rap' %>Rap
+  <%= f.radio_button :genre_eq, 'Funk' %>Funk
+  <%= f.radio_button :genre_eq, 'Jazz' %>Jazz
+  <%= f.radio_button :genre_eq, 'Classic' %>Classic
+  <%= f.radio_button :genre_eq, 'Other' %>Other
+
+  <%= f.label :japanese, 'Country' %>
+  <%= f.radio_button :japanese_eq, '' %>any
+  <%= f.radio_button :japanese_eq, 'true' %>Japanese
+  <%= f.radio_button :japanese_eq, 'false' %>Other
+
+  <%= f.label :size, 'Size' %>
+  <%= f.radio_button :size_lteq, '' %>any
+  <%= f.radio_button :size_lteq, '12' %>12inch
+  <%= f.radio_button :size_lteq, '7' %>7inch
+
+  <%= f.submit "Search" %>
 <% end %>
 
 <p id="notice"><%= notice %></p>
