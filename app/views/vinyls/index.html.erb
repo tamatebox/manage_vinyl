@@ -1,44 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="boxContainer">
 <%= search_form_for @q do |f| %>
+  <div class="box">
   <%= f.label :artist, "Search Artist" %>
   <%= f.search_field :artist_cont %>
+  </div>
 
+  <div class="box">
   <%= f.label :album, "Search Album" %>
   <%= f.search_field :album_cont %>
+  </div>
 
-  <%= f.label :label, "Serch Label" %>
+  <div class="box">
+  <%= f.label :label, "Search Label" %>
   <%= f.search_field :label_cont %>
-
-  <%= f.label :year, "Serch Year" %>
+  </div>
+</div>
+  <%= f.label :year, "Search Year" %>
   <%= f.number_field :year_gteq %>~
-  <%= f.number_field :year_lt %>
+  <%= f.number_field :year_lteq %>
 
   <%= f.label :genre, 'Genre' %>
   <%= f.radio_button :genre_eq, '' %>any
   <%= f.radio_button :genre_eq, 'Rock' %>Rock
   <%= f.radio_button :genre_eq, 'Pop' %>Pop
   <%= f.radio_button :genre_eq, 'Electronic' %>Electronic
-  <%= f.radio_button :genre_eq, 'Rap' %>Rap
+  <%= f.radio_button :genre_eq, 'Hip Hop' %>Hip Hop
   <%= f.radio_button :genre_eq, 'Funk' %>Funk
   <%= f.radio_button :genre_eq, 'Jazz' %>Jazz
   <%= f.radio_button :genre_eq, 'Classic' %>Classic
   <%= f.radio_button :genre_eq, 'Other' %>Other
 
+<div class="boxContainer">
+  <div class="box">
   <%= f.label :japanese, 'Country' %>
   <%= f.radio_button :japanese_eq, '' %>any
   <%= f.radio_button :japanese_eq, 'true' %>Japanese
   <%= f.radio_button :japanese_eq, 'false' %>Other
+  </div>
 
+  <div class="box">
   <%= f.label :size, 'Size' %>
-  <%= f.radio_button :size_lteq, '' %>any
-  <%= f.radio_button :size_lteq, '12' %>12inch
-  <%= f.radio_button :size_lteq, '7' %>7inch
-
+  <%= f.radio_button :size_eq, '' %>any
+  <%= f.radio_button :size_eq, '12' %>12inch
+  <%= f.radio_button :size_eq, '7' %>7inch
+  </div>
+</div>  
   <%= f.submit "Search" %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
+<h1>Vinyls (<%= @vinyls.size %>)</h1>
 
-<h1>Vinyls</h1>
+<%= link_to 'New Vinyl', new_vinyl_path %>
 
 <table>
   <thead>
@@ -50,7 +64,7 @@
       <th class="fixed01">Genre</th>
       <th class="fixed01">Japanese</th>
       <th class="fixed01">Size</th>
-      <th colspan="3"></th>
+      <th class="fixed01", colspan="3"></th>
     </tr>
   </thead>
 
@@ -73,5 +87,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Vinyl', new_vinyl_path %>

@@ -1,9 +1,11 @@
 class VinylsController < ApplicationController
-  before_action :set_vinyl, only: %i[ show edit update destroy ]
+  before_action :set_vinyl, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_q, only: [:index, :search]
 
   # GET /vinyls or /vinyls.json
   def index
     @q = Vinyl.ransack(params[:q])
+    @q.sorts = ['artist', 'album'] if @q.sorts.empty?
     @vinyls = @q.result(distinct: true)
   end
 
@@ -61,6 +63,10 @@ class VinylsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_vinyl
       @vinyl = Vinyl.find(params[:id])
+    end
+
+    def set_q
+      @q = Vinyl.ransack(params[:q])
     end
 
     # Only allow a list of trusted parameters through.
