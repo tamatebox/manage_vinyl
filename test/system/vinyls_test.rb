@@ -14,12 +14,15 @@ class VinylsTest < ApplicationSystemTestCase
     visit vinyls_url
     click_on "New Vinyl"
 
-    fill_in "size", with: @vinyl.size
+    fill_in "Size", with: @vinyl.size
+    fill_in "Compilation", with: @vinyl.compilation
     fill_in "Album", with: @vinyl.album
     fill_in "Artist", with: @vinyl.artist
     fill_in "Genre", with: @vinyl.genre
     fill_in "Japanese", with: @vinyl.japanese
     fill_in "Year", with: @vinyl.year
+    fill_in "Star", with: @vinyl.star
+    fill_in "Review", with: @vinyl.review
     click_on "Create Vinyl"
 
     assert_text "Vinyl was successfully created"
@@ -30,12 +33,15 @@ class VinylsTest < ApplicationSystemTestCase
     visit vinyls_url
     click_on "Edit", match: :first
 
-    fill_in "size", with: @vinyl.size
+    fill_in "Size", with: @vinyl.size
+    fill_in "Compilation", with: @vinyl.compilation
     fill_in "Album", with: @vinyl.album
     fill_in "Artist", with: @vinyl.artist
     fill_in "Genre", with: @vinyl.genre
     fill_in "Japanese", with: @vinyl.japanese
     fill_in "Year", with: @vinyl.year
+    fill_in "Star", with: @vinyl.star
+    fill_in "Review", with: @vinyl.review
     click_on "Update Vinyl"
 
     assert_text "Vinyl was successfully updated"

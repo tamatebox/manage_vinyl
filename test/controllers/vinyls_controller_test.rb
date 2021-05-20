@@ -17,7 +17,7 @@ class VinylsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create vinyl" do
     assert_difference('Vinyl.count') do
-      post vinyls_url, params: { vinyl: { size: @vinyl.size, album: @vinyl.album, artist: @vinyl.artist, genre: @vinyl.genre, japanese: @vinyl.japanese, year: @vinyl.year } }
+      post vinyls_url, params: { vinyl: { size: @vinyl.size, album: @vinyl.album, artist: @vinyl.artist, genre: @vinyl.genre, japanese: @vinyl.japanese, year: @vinyl.year compilation, @vinyl.compilation, star: @vinyl.star, review: @vinyl.review} }
     end
 
     assert_redirected_to vinyl_url(Vinyl.last)
@@ -34,7 +34,7 @@ class VinylsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update vinyl" do
-    patch vinyl_url(@vinyl), params: { vinyl: { size: @vinyl.size, album: @vinyl.album, artist: @vinyl.artist, genre: @vinyl.genre, japanese: @vinyl.japanese, year: @vinyl.year } }
+    patch vinyl_url(@vinyl), params: { vinyl: { size: @vinyl.size, album: @vinyl.album, artist: @vinyl.artist, genre: @vinyl.genre, japanese: @vinyl.japanese, year: @vinyl.year compilation, @vinyl.compilation, star: @vinyl.star, review: @vinyl.review} }
     assert_redirected_to vinyl_url(@vinyl)
   end
 

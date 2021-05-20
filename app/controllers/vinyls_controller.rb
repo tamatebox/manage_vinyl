@@ -1,12 +1,15 @@
 class VinylsController < ApplicationController
   before_action :set_vinyl, only: [ :show, :edit, :update, :destroy ]
   before_action :set_q, only: [:index, :search]
-
+  # before_action :genre_string, only: [:create, :update]
+  # before_action :star_string, only: [:create, :update] 
   # GET /vinyls or /vinyls.json
   def index
     @q = Vinyl.ransack(params[:q])
-    @q.sorts = ['artist', 'album'] if @q.sorts.empty?
-    @vinyls = @q.result(distinct: true)
+    @q.sorts = [ 'compilation', 'artist', 'album'] if @q.sorts.empty?
+    @vinyls = @q.result
+    @vinyls_size = @vinyls.size
+    @vinyls = @vinyls.paginate(page: params[:page], per_page: 100)
   end
 
   # GET /vinyls/1 or /vinyls/1.json
@@ -59,6 +62,20 @@ class VinylsController < ApplicationController
     end
   end
 
+  # def genre_string
+  #   if(params[:vinyl][:genre])
+  #     params[:vinyl][:genre] = params[:vinyl][:genre].join("/")
+  #   end
+  # end
+
+  # def star_string
+  #   params[:vinyl][:star] = params[:vinyl][:str].join("/")
+  # end
+
+  def vinyl_list
+    @vinyls = Vinyl.paginate(page: params[:page], per_page: 100)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vinyl
@@ -71,6 +88,6 @@ class VinylsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vinyl_params
-      params.require(:vinyl).permit(:artist, :album, :year, :label, :genre, :japanese, :size)
+      params.require(:vinyl).permit(:artist, :album, :year, :label, :japanese, :size, :star, :compilation, :review, genre:[],)
     end
 end

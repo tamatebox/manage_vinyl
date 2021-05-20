@@ -33,17 +33,39 @@
  
   <div class="field">
     <%= form.label :genre %>
-    <%= form.select :genre, {'Rock': 'Rock', 'Pop': 'Pop', 'Electronic': 'Electronic', 'Hip Hop': 'Hip Hop', 'Funk': 'Funk', 'Jazz': 'Jazz', 'Classic': 'Classic', 'Other': 'Other'} %>
+    <%= form.select :genre, {'Rock': 'Rock', 'Pop': 'Pop', 'Electronic': 'Electronic', 'Hip Hop': 'Hip Hop', 'Funk': 'Funk', 'Jazz': 'Jazz', 'Classic': 'Classic', 'Soundtrack': 'Soundtrack', 'Other': 'Other'} %>
   </div>
 
   <div class="field">
     <%= form.label :japanese %>
-    <%= form.select :japanese, {'No': 0, 'Yes': 1} %>
+    <%= form.radio_button :japanese, 'true'%>Japanese
+    <%= form.radio_button :japanese, 'false'%>Other
   </div>
 
   <div class="field">
     <%= form.label :size %>
-    <%= form.select :size, {'7inch': 7, '12inch': 12}, selected: 12 %>
+    <%= form.radio_button :size, '12'%>12inch
+    <%= form.radio_button :size, '7'%>7inch
+  </div>
+
+  <div class="field">
+    <%= form.label :compilation %>
+    <%= form.radio_button :compilation, 'true' %>Yes
+    <%= form.radio_button :compilation, 'false'%>No
+  </div>
+
+  <div class="field" id="star">
+    <%= form.label :star, "Star Evaluation" %>
+    <%= form.radio_button :star, 1%>1
+    <%= form.radio_button :star, 2%>2
+    <%= form.radio_button :star, 3%>3
+    <%= form.radio_button :star, 4%>4
+    <%= form.radio_button :star, 5%>5
+  </div>
+
+   <div class="field">
+    <%= form.label :review %>
+    <%= form.text_field :review, size:120 %>
   </div>
 
   <div class="actions">

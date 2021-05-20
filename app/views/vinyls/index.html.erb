@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class="boxContainer">
 <%= search_form_for @q do |f| %>
+<div class="boxContainer">
+  <div class="box">
+  <%= f.label :album_or_artist_or_label_or_review_cont, "Search Key Word" %>
+  <%= f.text_field :album_or_artist_or_label_or_review_cont %>
+  </div>
+
   <div class="box">
   <%= f.label :artist, "Search Artist" %>
   <%= f.search_field :artist_cont %>
@@ -11,26 +16,28 @@
   <%= f.label :album, "Search Album" %>
   <%= f.search_field :album_cont %>
   </div>
+</div>
+
+<div class="boxContainer">
+  <div class="box">
+  <%= f.label :year, "Search Year" %>
+  <%= f.number_field :year_gteq %>~
+  <%= f.number_field :year_lteq %>
+  </div>
 
   <div class="box">
   <%= f.label :label, "Search Label" %>
   <%= f.search_field :label_cont %>
   </div>
 </div>
-  <%= f.label :year, "Search Year" %>
-  <%= f.number_field :year_gteq %>~
-  <%= f.number_field :year_lteq %>
 
   <%= f.label :genre, 'Genre' %>
-  <%= f.radio_button :genre_eq, '' %>any
-  <%= f.radio_button :genre_eq, 'Rock' %>Rock
-  <%= f.radio_button :genre_eq, 'Pop' %>Pop
-  <%= f.radio_button :genre_eq, 'Electronic' %>Electronic
-  <%= f.radio_button :genre_eq, 'Hip Hop' %>Hip Hop
-  <%= f.radio_button :genre_eq, 'Funk' %>Funk
-  <%= f.radio_button :genre_eq, 'Jazz' %>Jazz
-  <%= f.radio_button :genre_eq, 'Classic' %>Classic
-  <%= f.radio_button :genre_eq, 'Other' %>Other
+  <%= f.check_box :genre_eq_any, {multiple: true}, 'Rock', nil %>Rock
+  <%= f.check_box :genre_eq_any, {multiple: true}, 'Pop', nil %>Pop
+  <%= f.check_box :genre_eq_any, {multiple: true}, 'Electronic', nil %>Electronic
+  <%= f.check_box :genre_eq_any, {multiple: true}, 'Hip Hop', nil %>Hip Hop
+  <%= f.check_box :genre_eq_any, {multiple: true}, 'Funk', nil %>Funk
+  <%= f.check_box :genre_eq_any, {multiple: true}, 'Jazz', nil %>Jazz
 
 <div class="boxContainer">
   <div class="box">
@@ -46,17 +53,25 @@
   <%= f.radio_button :size_eq, '12' %>12inch
   <%= f.radio_button :size_eq, '7' %>7inch
   </div>
-</div>  
-  <%= f.submit "Search" %>
-<% end %>
+</div>
+  
+  <%= f.label :star, 'Star' %>
+  <%= f.check_box :star_eq_any, {multiple: true}, 1, nil %>1
+  <%= f.check_box :star_eq_any, {multiple: true}, 2, nil %>2
+  <%= f.check_box :star_eq_any, {multiple: true}, 3, nil %>3
+  <%= f.check_box :star_eq_any, {multiple: true}, 4, nil %>4
+  <%= f.check_box :star_eq_any, {multiple: true}, 5, nil %>5
 
-<h1>Vinyls (<%= @vinyls.size %>)</h1>
+  <%= f.submit "Search" %>
+
+<h1>Vinyls (<%= @vinyls_size %>)</h1>
 
 <%= link_to 'New Vinyl', new_vinyl_path %>
 
 <table>
   <thead>
     <tr>
+      <th width="15"></th>
       <th class="fixed01"><%= sort_link(@q, :artist, "Artist") %></th>
       <th class="fixed01"><%= sort_link(@q, :album, "Album") %></th>
       <th class="fixed01"><%= sort_link(@q, :year, "Year") %></th>
@@ -69,8 +84,10 @@
   </thead>
 
   <tbody>
-    <% @vinyls.each do |vinyl| %>
+    <%= will_paginate @vinyls %>
+    <% @vinyls.each_with_index do |vinyl, i| %>
       <tr>
+        <td align="center"><%= 100 * (@vinyls.current_page - 1) + i + 1 %></td>
         <td><%= vinyl.artist %></td>
         <td><%= vinyl.album %></td>
         <td><%= vinyl.year %></td>
@@ -85,5 +102,6 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
