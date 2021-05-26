@@ -18,3 +18,5 @@ $ rails db:migrate
 $ rails test
 $ rails server
 ```
+
+And go to http://localhost:3000/vinyls
