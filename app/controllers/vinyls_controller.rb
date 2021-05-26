@@ -9,7 +9,8 @@ class VinylsController < ApplicationController
     @q.sorts = [ 'compilation', 'artist', 'album'] if @q.sorts.empty?
     @vinyls = @q.result
     @vinyls_size = @vinyls.size
-    @vinyls = @vinyls.paginate(page: params[:page], per_page: 100)
+    @per_page_num = 50
+    @vinyls = @vinyls.paginate(page: params[:page], per_page: @per_page_num)
   end
 
   # GET /vinyls/1 or /vinyls/1.json

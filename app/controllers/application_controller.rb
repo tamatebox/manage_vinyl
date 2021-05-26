@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
     @search = Vinyl.ransack(params[:q])
     @vinyls = @search.result
   end
+
+  include VinylsHelper
 end

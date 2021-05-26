@@ -71,13 +71,16 @@
 <table>
   <thead>
     <tr>
-      <th width="15"></th>
-      <th class="fixed01"><%= sort_link(@q, :artist, "Artist") %></th>
-      <th class="fixed01"><%= sort_link(@q, :album, "Album") %></th>
-      <th class="fixed01"><%= sort_link(@q, :year, "Year") %></th>
+      <th class="fixed01" width="15"></th>
+      <!--　<th class="fixed01"><%= sort_link(@q, :artist, hide_indicator: true) %></th> -->
+      <th class="fixed01">Artist</th>
+      <!--　<th class="fixed01"><%= sort_link(@q, :artist, hide_indicator: true) %></th> -->
+      <th class="fixed01">Album</th>
+      <!-- <th class="fixed01">Year<%= sort_asc("year")%><%= sort_desc("year")%></th> -->
+      <th class="fixed01"><%= sort_link(@q, :year, hide_indicator: true) %></th>
       <th class="fixed01">Label</th>
       <th class="fixed01">Genre</th>
-      <th class="fixed01">Japanese</th>
+      <th class="fixed01">Country</th>
       <th class="fixed01">Size</th>
       <th class="fixed01", colspan="3"></th>
     </tr>
@@ -87,17 +90,21 @@
     <%= will_paginate @vinyls %>
     <% @vinyls.each_with_index do |vinyl, i| %>
       <tr>
-        <td align="center"><%= 100 * (@vinyls.current_page - 1) + i + 1 %></td>
+        <td align="center"><%= @per_page_num * (@vinyls.current_page - 1) + i + 1 %></td>
         <td><%= vinyl.artist %></td>
         <td><%= vinyl.album %></td>
-        <td><%= vinyl.year %></td>
-        <td><%= vinyl.label %></td>
-        <td><%= vinyl.genre %></td>
-        <td><%= vinyl.japanese %></td>
-        <td><%= vinyl.size %></td>
-        <td><%= link_to 'Show', vinyl %></td>
-        <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
-        <td><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td align="center"><%= vinyl.year %></td>
+        <td align="center"><%= vinyl.label %></td>
+        <td align="center"><%= vinyl.genre %></td>
+        <% if vinyl.japanese then%>
+        <td bgcolor="#cccccc" align="center">Japanese</td>
+        <% else%>
+        <td align="center">Other</td>
+        <% end %>
+        <td align="center"><%= vinyl.size %>inch</td>
+        <td align="center"><%= link_to 'Show', vinyl %></td>
+        <td align="center"><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
+        <td align="center"><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -26,13 +26,17 @@
 </p>
 
 <p>
-  <strong>Japanese:</strong>
-  <%= @vinyl.japanese %>
+  <strong>Country:</strong>
+  <% if @vinyl.japanese then%>
+  Japanese
+  <% else%>
+  Other
+  <% end %>
 </p>
 
 <p>
   <strong>Size:</strong>
-  <%= @vinyl.size %>
+  <%= @vinyl.size %>inch
 </p>
 
 <p>
