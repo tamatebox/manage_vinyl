@@ -12,13 +12,26 @@ MySQL  Ver 8.0.25
 
 ## Usage
 
+### Start
+
+#### First Time
+
 ```
 $ bundle install --without production
 $ rails db:migrate
 $ rails test
+$ mysql.server start
+$ rails server
+```
+
+##### Second time or later
+
+```
+$ mysql.server start (if you need)
 $ rails server
 ```
 
 And go to 
 
 http://localhost:3000/vinyls
+
