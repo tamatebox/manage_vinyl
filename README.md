@@ -19,4 +19,6 @@ $ rails test
 $ rails server
 ```
 
-And go to http://localhost:3000/vinyls
+And go to 
+
+http://localhost:3000/vinyls
