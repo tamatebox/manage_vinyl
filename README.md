@@ -6,7 +6,7 @@ You need to change /config/database.yml.sample to /config/database.yml and chang
 
 
 ## Requirements
-Rails  version 13.0.3
+Rails  version 6.1.3.2
 
 MySQL  Ver 8.0.25
 
