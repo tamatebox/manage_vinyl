@@ -104,9 +104,9 @@
         <td align="center">Other</td>
         <% end %>
         <td align="center"><%= vinyl.size %>inch</td>
-        <td align="center"><%= button_to 'Show', vinyl %></td>
-        <td align="center"><%= button_to 'Edit', edit_vinyl_path(vinyl) %></td>
-        <td align="center"><%= button_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td align="center"><%= link_to 'Show', vinyl %></td>
+        <td align="center"><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
+        <td align="center"><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

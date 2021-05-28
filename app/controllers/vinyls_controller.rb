@@ -1,7 +1,8 @@
 class VinylsController < ApplicationController
   before_action :set_vinyl, only: [ :show, :edit, :update, :destroy ]
   before_action :set_q, only: [:index, :search]
-  protect_from_forgery :except => [:destroy]
+  # before_action :confirm, only: [:destroy]
+  # protect_from_forgery :except => [:destroy]
   # before_action :genre_string, only: [:create, :update]
   # before_action :star_string, only: [:create, :update] 
   # GET /vinyls or /vinyls.json
