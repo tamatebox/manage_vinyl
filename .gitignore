@@ -36,5 +36,5 @@
 yarn-debug.log*
 .yarn-integrity
 
-start.sh
-stop.sh
+docker-compose.yml
+
