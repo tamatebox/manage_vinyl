@@ -56,7 +56,8 @@
 
 <p>
   <strong>Review:</strong>
-  <%= @vinyl.review %>
+  <br />
+  <%=safe_join(@vinyl.review.split("\n"),tag(:br))%>
 </p>
 
 <%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
