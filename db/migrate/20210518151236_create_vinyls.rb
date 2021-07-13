@@ -2,6 +2,7 @@ class CreateVinyls < ActiveRecord::Migration[6.1]
   def change
     create_table :vinyls do |t|
       t.string :artist
+      t.string :alphabet_artist
       t.string :album
       t.integer :year
       t.string :genre
