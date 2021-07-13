@@ -10,7 +10,7 @@ Rails  version 6.1.3.2
 
 MySQL  Ver 8.0.25
 
-## Usage (Local)
+## Usage (Local, Mac OS)
 
 ### Start
 
