@@ -17,7 +17,8 @@ class VinylsTest < ApplicationSystemTestCase
     fill_in "Size", with: @vinyl.size
     fill_in "Compilation", with: @vinyl.compilation
     fill_in "Album", with: @vinyl.album
-    fill_in "Artist", with: @vinyl.artist
+    fill_in "Alphabet_Artist", with: @vinyl.alphabet_artist
+    fill_in "Artist_name", with: @vinyl.alphabet_artist
     fill_in "Genre", with: @vinyl.genre
     fill_in "Japanese", with: @vinyl.japanese
     fill_in "Year", with: @vinyl.year
@@ -36,7 +37,8 @@ class VinylsTest < ApplicationSystemTestCase
     fill_in "Size", with: @vinyl.size
     fill_in "Compilation", with: @vinyl.compilation
     fill_in "Album", with: @vinyl.album
-    fill_in "Artist", with: @vinyl.artist
+    fill_in "Alphabet_Artist", with: @vinyl.alphabet_artist
+    fill_in "Artist_name", with: @vinyl.alphabet_artist
     fill_in "Genre", with: @vinyl.genre
     fill_in "Japanese", with: @vinyl.japanese
     fill_in "Year", with: @vinyl.year

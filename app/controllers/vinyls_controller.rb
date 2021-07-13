@@ -8,7 +8,7 @@ class VinylsController < ApplicationController
   # GET /vinyls or /vinyls.json
   def index
     @q = Vinyl.ransack(params[:q])
-    @q.sorts = [ 'compilation', 'artist', 'album'] if @q.sorts.empty?
+    @q.sorts = [ 'compilation', 'alphabet_artist', 'album'] if @q.sorts.empty?
     @vinyls = @q.result
     @vinyls_size = @vinyls.size
     @per_page_num = 50
@@ -91,6 +91,6 @@ class VinylsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vinyl_params
-      params.require(:vinyl).permit(:artist, :album, :year, :label, :japanese, :size, :star, :compilation, :review, :genre,)
+      params.require(:vinyl).permit(:artist, :alphabet_artist, :album, :year, :label, :japanese, :size, :star, :compilation, :review, :genre,)
     end
 end

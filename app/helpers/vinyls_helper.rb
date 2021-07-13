@@ -20,7 +20,7 @@ module VinylsHelper
 
   def sort_column
     # If params[:column] is nil, set sort_column to "occurred_date" by default
-    Vinyl.column_names.include?(params[:column]) ? params[:column] : "artist"
+    Vinyl.column_names.include?(params[:column]) ? params[:column] : "alphabet_artist"
   end
 
   def decide_decade(year)
