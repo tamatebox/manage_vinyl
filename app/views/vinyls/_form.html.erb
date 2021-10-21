@@ -1,4 +1,4 @@
-<%= form_with(model: vinyl) do |form| %>
+<%= form_with(model: [vinyl]) do |form| %>
   <% if vinyl.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(vinyl.errors.count, "error") %> prohibited this vinyl from being saved:</h2>

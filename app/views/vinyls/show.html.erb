@@ -60,5 +60,9 @@
   <%=safe_join(@vinyl.review.to_s.split("\n"),tag(:br))%>
 </p>
 
-<%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
-<%= link_to 'Back', vinyls_path %>
+<% if @page.blank? then%>
+<% @page = '1' %>
+<% end %>
+
+<%= link_to 'Edit', edit_vinyl_path(@vinyl, page: @page) %> |
+<%= link_to 'Back', vinyls_path + '?page=' + @page%>

@@ -13,6 +13,7 @@ class VinylsController < ApplicationController
     @vinyls_size = @vinyls.size
     @per_page_num = 50
     @vinyls = @vinyls.paginate(page: params[:page], per_page: @per_page_num)
+    @page = params[:page]
   end
 
   # GET /vinyls/1 or /vinyls/1.json
@@ -31,7 +32,7 @@ class VinylsController < ApplicationController
   # POST /vinyls or /vinyls.json
   def create
     @vinyl = Vinyl.new(vinyl_params)
-
+    @page = params[:page]
     respond_to do |format|
       if @vinyl.save
         format.html { redirect_to @vinyl, notice: "Vinyl was successfully created." }
@@ -45,6 +46,7 @@ class VinylsController < ApplicationController
 
   # PATCH/PUT /vinyls/1 or /vinyls/1.json
   def update
+    @page = params[:page]
     respond_to do |format|
       if @vinyl.update(vinyl_params)
         format.html { redirect_to @vinyl, notice: "Vinyl was successfully updated." }
@@ -58,6 +60,7 @@ class VinylsController < ApplicationController
 
   # DELETE /vinyls/1 or /vinyls/1.json
   def destroy
+    @page = params[:page]
     @vinyl.destroy
     respond_to do |format|
       format.html { redirect_to vinyls_url, notice: "Vinyl was successfully destroyed." }
@@ -82,6 +85,7 @@ class VinylsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vinyl
+      @page = params[:page]
       @vinyl = Vinyl.find(params[:id])
     end
 
