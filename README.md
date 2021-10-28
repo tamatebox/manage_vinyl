@@ -10,6 +10,24 @@ Rails  version 6.1.3.2
 
 MySQL  Ver 8.0.25
 
+Docker (optional)
+
+## Usage (Docker)
+
+### Start
+
+#### First Time
+
+```
+$ docker-compose up -d
+```
+
+##### Second time or later
+
+```
+$ docker-compose up -d
+```
+
 ## Usage (Local, Mac OS)
 
 ### Start
