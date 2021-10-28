@@ -1,6 +1,7 @@
 version: '2'
 services:
   db:
+    platform: linux/x86_64
     image: mysql:latest
     environment:
       MYSQL_DATABASE: manage_vinyl_development
