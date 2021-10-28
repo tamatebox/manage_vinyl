@@ -29,6 +29,9 @@
 /config/master.key
 /config/database.yml
 
+/database.yml
+/docker-compose.yml
+
 /public/packs
 /public/packs-test
 /node_modules
