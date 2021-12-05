@@ -20,7 +20,7 @@ class VinylsTest < ApplicationSystemTestCase
     fill_in "Alphabet_Artist", with: @vinyl.alphabet_artist
     fill_in "Artist_name", with: @vinyl.alphabet_artist
     fill_in "Genre", with: @vinyl.genre
-    fill_in "Japanese", with: @vinyl.japanese
+    fill_in "Country", with: @vinyl.country
     fill_in "Year", with: @vinyl.year
     fill_in "Star", with: @vinyl.star
     fill_in "Review", with: @vinyl.review
@@ -40,7 +40,7 @@ class VinylsTest < ApplicationSystemTestCase
     fill_in "Alphabet_Artist", with: @vinyl.alphabet_artist
     fill_in "Artist_name", with: @vinyl.alphabet_artist
     fill_in "Genre", with: @vinyl.genre
-    fill_in "Japanese", with: @vinyl.japanese
+    fill_in "Country", with: @vinyl.country
     fill_in "Year", with: @vinyl.year
     fill_in "Star", with: @vinyl.star
     fill_in "Review", with: @vinyl.review

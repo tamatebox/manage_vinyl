@@ -11,15 +11,25 @@
     </div>
   <% end %>
 
+  <main>
+    <div class="field">
+      <%= form.label :DiscogID, 'Discog ID' %>
+      <%= form.text_field :DiscogID, size:40 %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </main>
 
-  <div class="field">
-    <%= form.label :artist %>
-    <%= form.text_field :artist, size:40 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alphabet_artist %>
-    <%= form.text_field :alphabet_artist, size:40 %>
+  <div class="boxContainer">
+    <div class="box">
+      <%= form.label :artist %>
+      <%= form.text_field :artist, size:40 %>
+    </div>
+    <div class="box">
+      <%= form.label :alphabet_artist, 'Alphabet Artist' %>
+      <%= form.text_field :alphabet_artist, size:40 %>
+    </div>
   </div>
 
   <div class="field">
@@ -27,46 +37,48 @@
     <%= form.text_field :album, size:60 %>
   </div>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.number_field :year %>
+  <div class="boxContainer">
+    <div class="box">
+      <%= form.label :year %>
+      <%= form.number_field :year %>
+    </div>
+    <div class="box">
+      <%= form.label :label %>
+      <%= form.text_field :label %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :label %>
-    <%= form.text_field :label %>
-  </div>
- 
-  <div class="field">
-    <%= form.label :genre %>
-    <%= form.select :genre, {'Rock': 'Rock', 'Pop': 'Pop', 'Electronic': 'Electronic', 'Hip Hop': 'Hip Hop', 'Funk': 'Funk', 'Jazz': 'Jazz', 'Classic': 'Classic', 'Soundtrack': 'Soundtrack', 'Other': 'Other'} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :japanese, 'Country' %>
-    <%= form.radio_button :japanese, 'true'%>Japanese
-    <%= form.radio_button :japanese, 'false'%>Other
+  <div class="boxContainer">
+    <div class="box">
+      <%= form.label :genre %>
+      <%= form.select :genre, {'Rock': 'Rock', 'Pop': 'Pop', 'Electronic': 'Electronic', 'Hip Hop': 'Hip Hop', 'Funk': 'Funk', 'Jazz': 'Jazz', 'Classic': 'Classic', 'Soundtrack': 'Soundtrack', 'Other': 'Other'} %>
+    </div>
+    <div class="box">
+      <%= form.label :country, 'Country' %>
+      <%= form.text_field :country %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.radio_button :size, '12'%>12inch
-    <%= form.radio_button :size, '7'%>7inch
-  </div>
-
-  <div class="field">
-    <%= form.label :compilation %>
-    <%= form.radio_button :compilation, 'true' %>Yes
-    <%= form.radio_button :compilation, 'false'%>No
+  <div class="boxContainer">
+    <div class="box">
+      <%= form.label :size %>
+      <%= form.radio_button :size, '12'%>12inch
+      <%= form.radio_button :size, '7'%>7inch
+    </div>
+    <div class="box">
+      <%= form.label :compilation %>
+      <%= form.radio_button :compilation, 'true' %>Yes
+      <%= form.radio_button :compilation, 'false'%>No
+    </div>
   </div>
 
   <div class="field" id="star">
-    <%= form.label :star, "Star Evaluation" %>
-    <%= form.radio_button :star, 1%>1
-    <%= form.radio_button :star, 2%>2
-    <%= form.radio_button :star, 3%>3
-    <%= form.radio_button :star, 4%>4
-    <%= form.radio_button :star, 5%>5
+      <%= form.label :star, "Star Evaluation" %>
+      <%= form.radio_button :star, 1%>1
+      <%= form.radio_button :star, 2%>2
+      <%= form.radio_button :star, 3%>3
+      <%= form.radio_button :star, 4%>4
+      <%= form.radio_button :star, 5%>5
   </div>
 
    <div class="field">

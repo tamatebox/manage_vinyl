@@ -10,22 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_073504) do
+ActiveRecord::Schema.define(version: 2021_12_05_141537) do
 
-  create_table "vinyls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "songs", charset: "latin1", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "vinylID", null: false
+    t.integer "bpm"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "vinyls", charset: "utf8", force: :cascade do |t|
     t.string "alphabet_artist"
-    t.string "artist"
     t.string "album"
     t.integer "year"
     t.string "genre"
-    t.boolean "japanese"
-    t.integer "size"
+    t.string "country"
+    t.integer "size", default: 12, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "label"
-    t.boolean "compilation", default: 0
-    t.integer "star",
+    t.boolean "compilation"
+    t.integer "star"
     t.string "review"
+    t.string "artist", null: false
   end
 
 end

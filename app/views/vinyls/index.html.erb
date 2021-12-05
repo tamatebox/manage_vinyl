@@ -43,10 +43,8 @@
 
 <div class="boxContainer">
   <div class="box">
-  <%= f.label :japanese, 'Country' %>
-  <%= f.radio_button :japanese_eq, '' %>any
-  <%= f.radio_button :japanese_eq, 'true' %>Japanese
-  <%= f.radio_button :japanese_eq, 'false' %>Other
+  <%= f.label :country, 'Country' %>
+  <%= f.search_field :country_cont %>
   </div>
 
   <div class="box">
@@ -98,11 +96,7 @@
         <td align="center"><%= vinyl.year %></td>
         <td align="center"><%= vinyl.label %></td>
         <td align="center"><%= vinyl.genre %></td>
-        <% if vinyl.japanese then%>
-        <td bgcolor="#cccccc" align="center">Japanese</td>
-        <% else%>
-        <td align="center">Other</td>
-        <% end %>
+        <td align="center"><%= vinyl.country %></td>
         <td align="center"><%= vinyl.size %>inch</td>
         <td align="center"><%= link_to 'Show', vinyl_path(vinyl, page: @vinyls.current_page)%></td>
         <td align="center"><%= link_to 'Edit', edit_vinyl_path(vinyl, page: @vinyls.current_page) %></td>
