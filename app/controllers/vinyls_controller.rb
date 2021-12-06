@@ -23,6 +23,7 @@ class VinylsController < ApplicationController
   # GET /vinyls/new
   def new
     @vinyl = Vinyl.new
+    @song = @vinyl.songs.build
   end
 
   # GET /vinyls/1/edit
@@ -95,6 +96,10 @@ class VinylsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vinyl_params
-      params.require(:vinyl).permit(:artist, :alphabet_artist, :album, :year, :label, :country, :size, :star, :compilation, :review, :genre,)
+      params.require(:vinyl).permit(
+        :artist, :alphabet_artist, :album, :year, :label, 
+        :country, :size, :star, :compilation, :review, :genre, 
+        :catalog, :spotify,
+        songs_attributes:[:id, :title, :vinyl_id, :bpm, :track, :_destroy])
     end
 end

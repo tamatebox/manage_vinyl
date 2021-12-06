@@ -4,10 +4,6 @@ class Discog < ApplicationRecord
 
   private  # 以下のメソッドは外部から呼び出さないのでprivateにする
 
-  def set_json
-    self.d_json = descog_json if will_save_change_to_url?
-  end
-
   def discog_json
     url = "https://api.discogs.com/releases/#{id}"
     uri = URI.parse(url)

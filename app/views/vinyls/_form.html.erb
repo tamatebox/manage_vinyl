@@ -1,4 +1,4 @@
-<%= form_with(model: [vinyl]) do |form| %>
+<%= form_with(model: @vinyl) do |form| %>
   <% if vinyl.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(vinyl.errors.count, "error") %> prohibited this vinyl from being saved:</h2>
@@ -11,30 +11,45 @@
     </div>
   <% end %>
 
-  <main>
-    <div class="field">
+<%
+=begin %>
+  <div class="boxContainer">
+    <div class="box">
       <%= form.label :DiscogID, 'Discog ID' %>
-      <%= form.text_field :DiscogID, size:40 %>
+      <%= form.text_field :DiscogID, size:30 %>
     </div>
-    <div class="actions">
-      <%= form.submit %>
+    <div class="box">
+      <%= button_to "Search", { controller: 'discogs', action: 'show' }, { method: :get, params: {id: @DiscogID} } %>
     </div>
-  </main>
+  </div>
+<%
+=end %>
 
   <div class="boxContainer">
     <div class="box">
       <%= form.label :artist %>
-      <%= form.text_field :artist, size:40 %>
+      <%= form.text_field :artist, size:30 %>
     </div>
     <div class="box">
       <%= form.label :alphabet_artist, 'Alphabet Artist' %>
-      <%= form.text_field :alphabet_artist, size:40 %>
+      <%= form.text_field :alphabet_artist, size:30 %>
+    </div>
+  </div>
+
+  <div class="boxContainer">
+    <div class="field">
+      <%= form.label :album %>
+      <%= form.text_field :album, size:50 %>
+    </div>
+    <div class="field">
+      <%= form.label :catalog %>
+      <%= form.text_field :catalog, size:10 %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :album %>
-    <%= form.text_field :album, size:60 %>
+    <%= form.label :spotify %>
+    <%= form.text_field :spotify, size:60 %>
   </div>
 
   <div class="boxContainer">
@@ -80,11 +95,32 @@
       <%= form.radio_button :star, 4%>4
       <%= form.radio_button :star, 5%>5
   </div>
-
-   <div class="field">
+  
+  <div class="field">
     <%= form.label :review %>
-    <%= form.text_area :review, size: "100x10" %>
+    <%= form.text_area :review, size: "60x10" %>
   </div>
+<%
+=begin %>
+  <div class="songs">
+    <div id="detail-association-insertion-point"></div>
+
+    <div class="col-10 mx-auto mt-2">
+      <%= link_to_add_association "add song", form, :songs,
+      class: "btn btn-secondary btn-block",
+      data: {
+      association_insertion_node: '#detail-association-insertion-point',
+      association_insertion_method: 'after'
+      }%>
+    </div>
+    <div class="mx-auto">
+      <%= form.fields_for :songs do |t| %>
+        <%= render "song_fields", f: t %>
+      <% end %>
+    </div>
+  </div>
+<%
+=end %>
 
   <div class="actions">
     <%= form.submit %>

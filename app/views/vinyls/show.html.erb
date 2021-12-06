@@ -7,7 +7,12 @@
 
 <p>
   <strong>Album:</strong>
-  <%= @vinyl.album %>
+  <%= link_to @vinyl.album, @vinyl.spotify %>
+</p>
+
+<p>
+  <strong>Catalog:</strong>
+  <%= @vinyl.catalog %>
 </p>
 
 <p>
@@ -55,5 +60,10 @@
 <% @page = '1' %>
 <% end %>
 
-<%= link_to 'Edit', edit_vinyl_path(@vinyl, page: @page) %> |
+<%= link_to 'Edit', edit_vinyl_path(@vinyl, page: @page, song: @song) %> |
 <%= link_to 'Back', vinyls_path + '?page=' + @page%>
+
+<p></p><p></p>
+<% if @vinyl.spotify then%>
+<iframe src=<%=gen_spotify_link(@vinyl.spotify)%> width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe> 
+<% end %>

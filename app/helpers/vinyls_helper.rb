@@ -23,6 +23,11 @@ module VinylsHelper
     Vinyl.column_names.include?(params[:column]) ? params[:column] : "alphabet_artist"
   end
 
+  def gen_spotify_link(spotify)
+    spotify_id=spotify.split("/")[-1].split("?")[0]
+    return "https://open.spotify.com/embed/album/#{spotify_id}?utm_source=generator"
+  end
+
   def decide_decade(year)
     if(not year) then
       return 

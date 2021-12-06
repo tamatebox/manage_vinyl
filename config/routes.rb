@@ -4,4 +4,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  1
+get "show", to: "top#tmp"
 end

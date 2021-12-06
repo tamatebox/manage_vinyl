@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_141537) do
+ActiveRecord::Schema.define(version: 2021_12_06_152720) do
 
   create_table "songs", charset: "latin1", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "vinylID", null: false
+    t.string "title", null: false
+    t.bigint "vinyl_id", null: false
     t.integer "bpm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2021_12_05_141537) do
     t.integer "star"
     t.string "review"
     t.string "artist", null: false
+    t.integer "track"
+    t.string "spotify"
+    t.string "catalog"
   end
 
 end
