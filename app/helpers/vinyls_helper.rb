@@ -31,7 +31,11 @@ module VinylsHelper
         spotify_id=spotify.split("/")[-1].split("?")[0]
         return "https://open.spotify.com/embed/album/#{spotify_id}?utm_source=generator"
       elsif spotify.include? "youtu" then
-        youtube_id=spotify.split("/")[-1]
+        if spotify.include? "?v=" then
+          youtube_id=spotify.split("/")[-1].split("=")[1]
+        else
+          youtube_id=spotify.split("/")[-1]
+        end
         return "https://www.youtube.com/embed/#{youtube_id}"
       end
     end
