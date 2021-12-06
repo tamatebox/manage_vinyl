@@ -24,7 +24,7 @@ module VinylsHelper
   end
 
   def gen_spotify_link(spotify)
-    if spotify.empty? then
+    if spotify.blank? then
       return
     else
       spotify_id=spotify.split("/")[-1].split("?")[0]
