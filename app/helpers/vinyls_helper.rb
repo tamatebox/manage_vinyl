@@ -24,8 +24,12 @@ module VinylsHelper
   end
 
   def gen_spotify_link(spotify)
-    spotify_id=spotify.split("/")[-1].split("?")[0]
+    if spotify.empty? then
+      return
+    else
+      spotify_id=spotify.split("/")[-1].split("?")[0]
     return "https://open.spotify.com/embed/album/#{spotify_id}?utm_source=generator"
+    end
   end
 
   def decide_decade(year)
