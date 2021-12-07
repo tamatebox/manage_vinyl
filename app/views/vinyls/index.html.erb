@@ -92,7 +92,12 @@
       <tr>
         <td align="center"><%= @per_page_num * (@vinyls.current_page - 1) + i + 1 %></td>
         <td><%= vinyl.artist %></td>
-        <td><%= vinyl.album %></td>
+        <td><% if vinyl.spotify.blank? then%>
+              <%= vinyl.album %>
+            <% else %>
+              <%= link_to vinyl.album, vinyl.spotify %>
+            <% end %>
+        </td>
         <td align="center"><%= vinyl.year %></td>
         <td align="center"><%= vinyl.label %></td>
         <td align="center"><%= vinyl.genre %></td>

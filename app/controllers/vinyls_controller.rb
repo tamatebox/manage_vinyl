@@ -11,7 +11,7 @@ class VinylsController < ApplicationController
     @q.sorts = [ 'compilation', 'alphabet_artist', 'album'] if @q.sorts.empty?
     @vinyls = @q.result
     @vinyls_size = @vinyls.size
-    @per_page_num = 50
+    @per_page_num = 100
     @vinyls = @vinyls.paginate(page: params[:page], per_page: @per_page_num)
     @page = params[:page]
   end
